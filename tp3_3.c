@@ -8,8 +8,10 @@ void mostrar(char **nom);
 int main(){
 
 char **nom = malloc(sizeof(char)*5);
-//printf("Ingrese 5 nombres: \n");
 
+
+
+fflush(stdin);
 cargar(nom);
 fflush(stdin);
 mostrar(nom);
