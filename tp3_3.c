@@ -2,25 +2,33 @@
 #include <stdlib.h>
 #include <conio.h>
 
-void cargar(char **nom);
-void mostrar(char **nom);
+void cargar(char **nom, int cant);
+void mostrar(char **nom, int cant);
+void liberarMem(char **nom, int cant);
 
 int main(){
+int cant;
 
-char **nom = malloc(sizeof(char)*5);
+printf("Ingrese la cantidad de nombre que quiere ingresar: ");
+scanf("%d",&cant);
+
+
+char **nom = malloc(sizeof(char)*cant);
 
 
 
 fflush(stdin);
-cargar(nom);
+cargar(nom,cant);
 fflush(stdin);
-mostrar(nom);
+mostrar(nom,cant);
+liberarMem(nom,cant);
+
 
 return 0;
 }
 
-void cargar(char **nom){
-    for (int i = 0; i < 5; i++)
+void cargar(char **nom, int cant){
+    for (int i = 0; i < cant; i++)
     {
         nom[i]=malloc(sizeof(char)*20);
         printf("Ingrese el nombre: ");
@@ -29,9 +37,17 @@ void cargar(char **nom){
     }
 }
 
-void mostrar(char **nom){
-    for (int i = 0; i < 5; i++)
+void mostrar(char **nom, int cant){
+    for (int i = 0; i < cant; i++)
     {
        printf("Nombre: %s\n", nom[i]);
     }
+}
+
+void liberarMem(char **nom, int cant){
+    for (int i = 0; i < cant; i++)
+    {
+        free(nom[i]);
+    }
+    free(nom);
 }
