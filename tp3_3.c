@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 
 void cargar(char **nom, int cant);
 void mostrar(char **nom, int cant);
